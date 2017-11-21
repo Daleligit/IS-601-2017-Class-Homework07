@@ -1,5 +1,5 @@
 <?php
-    class todos extends collection {
+    final class todos extends collection {
         protected static $modelName = 'todos';
     }
 ?>

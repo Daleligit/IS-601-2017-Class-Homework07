@@ -1,5 +1,5 @@
 <?php
-    class account extends model {
+    final class account extends model {
         public $id;
         public $email;
         public $fname;

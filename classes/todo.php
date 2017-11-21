@@ -1,5 +1,5 @@
 <?php
-    class todo extends model {
+    final class todo extends model {
         public $id;
         public $owneremail;
         public $ownerid;
