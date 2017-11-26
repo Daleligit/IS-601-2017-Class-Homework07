@@ -1,6 +1,6 @@
 <?php
     namespace classes\model;
-    final class todo extends model {
+    final class todos extends model {
         public $id;
         public $owneremail;
         public $ownerid;
