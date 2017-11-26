@@ -1,4 +1,5 @@
 <?php
+    namespace classes\page;
     class homepage extends page {
         public function get()
         {

@@ -1,4 +1,5 @@
 <?php
+    namespace classes;
     class table {
         static public function createTable($inputArray) {
             $table = htmlTags::tableHead('displayTable');

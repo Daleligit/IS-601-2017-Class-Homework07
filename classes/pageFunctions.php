@@ -1,4 +1,5 @@
 <?php
+    namespace classes;
     class pageFunctions {
         static public function getRequestPage () {
             $pageRequest = 'homepage';

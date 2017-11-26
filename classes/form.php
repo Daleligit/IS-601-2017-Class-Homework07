@@ -1,4 +1,5 @@
 <?php
+    namespace classes;
     class form {
         static public function createTableSelectForm () {
             $form = '<form action="index.php?page=homepage" method="post">';

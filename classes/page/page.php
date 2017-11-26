@@ -1,4 +1,5 @@
 <?php
+    namespace classes\page;
     abstract class page {
         protected $html;
         public function __construct() {

@@ -1,4 +1,5 @@
 <?php
+    namespace classes\collection;
     abstract class collection {
         static public function findAll() {
             global $sqlErr;

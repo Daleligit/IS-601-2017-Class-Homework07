@@ -1,4 +1,5 @@
 <?php
+    namespace classes\model;
     final class todo extends model {
         public $id;
         public $owneremail;

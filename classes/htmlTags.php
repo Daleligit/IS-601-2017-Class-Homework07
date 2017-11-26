@@ -1,4 +1,5 @@
 <?php
+    namespace classes;
     class htmlTags {
         static public function changeRow($input) {
             return $input . '</br>';

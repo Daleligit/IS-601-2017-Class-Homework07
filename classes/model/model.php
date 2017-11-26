@@ -1,4 +1,5 @@
 <?php
+    namespace classes\model;
     abstract class model
     {
         protected $tableName;

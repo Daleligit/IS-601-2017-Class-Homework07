@@ -1,4 +1,5 @@
 <?php
+    namespace classes\page;
     class display extends page {
         public function get() {
             $tableName = $_GET['table'];

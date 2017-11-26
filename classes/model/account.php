@@ -1,4 +1,5 @@
 <?php
+    namespace classes\model;
     final class account extends model {
         public $id;
         public $email;

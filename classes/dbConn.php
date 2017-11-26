@@ -1,4 +1,5 @@
 <?php
+    namespace classes;
     class dbConn{
         protected static $db;
         private function __construct() {
