@@ -5,10 +5,10 @@
         private function __construct() {
             global $connErr;
             try {
-                self::$db = new PDO( 'mysql:host=' . CONNECTION .';dbname=' . DATABASE, USERNAME, PASSWORD );
-                self::$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+                self::$db = new \PDO( 'mysql:host=' . CONNECTION .';dbname=' . DATABASE, USERNAME, PASSWORD );
+                self::$db->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
             }
-            catch (PDOException $e) {
+            catch (\PDOException $e) {
                 $connErr .= htmlTags::changeRow("Connection Error: " . $e->getMessage());
             }
         }

@@ -8,7 +8,7 @@
         public $duedate;
         public $message;
         public $isdone;
-        protected static $modelName = 'todo';
+        protected static $modelName = 'todos';
         public function __construct()
         {
             $this->tableName = 'todos';

@@ -1,5 +1,6 @@
 <?php
     namespace classes;
+    use classes\collection as nameSpcOne;
     class form {
         static public function createTableSelectForm () {
             $form = '<form action="index.php?page=homepage" method="post">';
@@ -35,10 +36,10 @@
             $form = '<form action="index.php?page=display&table=' . $tableName . '&method=save" method="post">';
             switch ($tableName) {
                 case 'accounts';
-                    $res = accounts::findAll();
+                    $res = nameSpcOne\accounts::findAll();
                     break;
                 case 'todos';
-                    $res = todos::findAll();
+                    $res = nameSpcOne\todos::findAll();
                     break;
             }
             $res = $res[0];

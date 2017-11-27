@@ -1,6 +1,6 @@
 <?php
     namespace classes\model;
-    final class account extends model {
+    final class accounts extends model {
         public $id;
         public $email;
         public $fname;
@@ -9,7 +9,7 @@
         public $birthday;
         public $gender;
         public $password;
-        protected static $modelName = 'account';
+        protected static $modelName = 'accounts';
         public function __construct()
         {
             $this->tableName = 'accounts';

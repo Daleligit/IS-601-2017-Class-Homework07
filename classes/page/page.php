@@ -1,16 +1,17 @@
 <?php
     namespace classes\page;
+    use classes;
     abstract class page {
         protected $html;
         public function __construct() {
-            $this->html .= htmlTags::htmlHead();
-            $this->html .= htmlTags::pageStyles();
-            $this->html .= htmlTags::htmlBody();
+            $this->html .= classes\htmlTags::htmlHead();
+            $this->html .= classes\htmlTags::pageStyles();
+            $this->html .= classes\htmlTags::htmlBody();
         }
         public function __destruct() {
-            $this->html .= htmlTags::bodyEnd();
-            $this->html .= htmlTags::htmlEnd();
-            stringFunctions::printThis($this->html);
+            $this->html .= classes\htmlTags::bodyEnd();
+            $this->html .= classes\htmlTags::htmlEnd();
+            classes\stringFunctions::printThis($this->html);
         }
     }
 ?>

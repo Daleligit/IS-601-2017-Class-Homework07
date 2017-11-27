@@ -18,10 +18,18 @@
             return array_keys($array);
         }
         public static function arrayClean ($array) {
-            foreach ($array as $key=>$value) {
-                if ($key % 2 == 0) {
-                    $res[$key/2] = $value;
+            If (!empty($array)) {
+                foreach ($array as $key=>$value) {
+                    $temp = 0;
+                    foreach ($value as $column => $data){
+                        if ($temp % 2 == 0) {
+                            $res[$key][$column] = $data;
+                        }
+                        $temp = $temp + 1;
+                    }
                 }
+            } else {
+                $res = '';
             }
             return $res;
         }

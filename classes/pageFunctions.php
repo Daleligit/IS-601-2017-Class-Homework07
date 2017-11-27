@@ -1,5 +1,6 @@
 <?php
     namespace classes;
+    use classes\collection as nameSpcOne, classes\model as nameSpcTwo;
     class pageFunctions {
         static public function getRequestPage () {
             $pageRequest = 'homepage';
@@ -21,12 +22,29 @@
         static public function runMethod ($method,$tableName,$id) {
             switch ($method) {
                 case 'findAll';
-                    $result = table::createTable($tableName::findAll());
+                    switch ($tableName) {
+                        case 'accounts';
+                            $result = nameSpcOne\accounts::findAll();
+                            break;
+                        case 'todos';
+                            $result = nameSpcOne\todos::findAll();
+                            break;
+                    }
+                    $result = table::createTable($result);
                     break;
                 case 'findOne';
                     if (!empty($id)) {
-                        $result = table::createTable($tableName::findOne($id));
-                        if ($result == '<table id=displayTable></table>') {
+                        switch ($tableName) {
+                            case 'accounts';
+                                $result = nameSpcOne\accounts::findOne($id);
+                                break;
+                            case 'todos';
+                                $result = nameSpcOne\todos::findOne($id);
+                                break;
+                        }
+                        if (!empty($result)) {
+                            $result = table::createTable($result);
+                        } else {
                             $result = htmlTags::changeRow('There is not a line with id = ' . $id);
                         }
                     } else {
@@ -34,9 +52,15 @@
                     }
                     break;
                 case 'delete';
-                    $tableName = stringFunctions::rightTrim($tableName, 's');
                     if (!empty($id)) {
-                        $table = $tableName::create();
+                        switch ($tableName) {
+                            case 'accounts';
+                                $table = nameSpcTwo\accounts::create();
+                                break;
+                            case 'todos';
+                                $table = nameSpcTwo\todos::create();
+                                break;
+                        }
                         $table->id = $id;
                         $result = $table->delete();
                     } else {
@@ -44,21 +68,22 @@
                     }
                     break;
                 case 'save';
-                    $tableName = stringFunctions::rightTrim($tableName, 's');
                     if (!empty($id)) {
-                        $table = $tableName::create();
-                        $table->id = $id;
                         switch ($tableName) {
-                            case 'account';
-                                $table->email =
-                                $table->fname = $_POST['fname'];$_POST['email'];
+                            case 'accounts';
+                                $table = nameSpcTwo\accounts::create();
+                                $table->id = $id;
+                                $table->email = $_POST['email'];
+                                $table->fname = $_POST['fname'];
                                 $table->lname = $_POST['lname'];
                                 $table->phone = $_POST['phone'];
                                 $table->birthday = $_POST['birthday'];
                                 $table->gender = $_POST['gender'];
                                 $table->password = $_POST['password'];
                                 break;
-                            case 'todo';
+                            case 'todos';
+                                $table = nameSpcTwo\todos::create();
+                                $table->id = $id;
                                 $table->owneremail = $_POST['owneremail'];
                                 $table->ownerid = $_POST['ownerid'];
                                 $table->createddate = $_POST['createddate'];

@@ -1,25 +1,26 @@
 <?php
     namespace classes\page;
+    use classes;
     class display extends page {
         public function get() {
             $tableName = $_GET['table'];
-            $this->html .= form::createFindAllForm($tableName);
-            $this->html .= htmlTags::horizontalRule();
-            $this->html .= form::createFindIdForm($tableName);
-            $this->html .= htmlTags::horizontalRule();
-            $this->html .= form::createDeleteForm($tableName);
-            $this->html .= htmlTags::horizontalRule();
-            $this->html .= form::createSaveForm($tableName);
-            $this->html .= htmlTags::horizontalRule();
-            $this->html .= htmlTags::turnPage('index.php', 'Back');
+            $this->html .= classes\form::createFindAllForm($tableName);
+            $this->html .= classes\htmlTags::horizontalRule();
+            $this->html .= classes\form::createFindIdForm($tableName);
+            $this->html .= classes\htmlTags::horizontalRule();
+            $this->html .= classes\form::createDeleteForm($tableName);
+            $this->html .= classes\htmlTags::horizontalRule();
+            $this->html .= classes\form::createSaveForm($tableName);
+            $this->html .= classes\htmlTags::horizontalRule();
+            $this->html .= classes\htmlTags::turnPage('index.php', 'Back');
         }
         public function post() {
             $tableName = $_GET['table'];
             $method = $_GET['method'];
-            $id = pageFunctions::getID($method);
-            $this->html .= pageFunctions::runMethod($method,$tableName,$id);
-            $this->html .= htmlTags::changeRow(pageFunctions::outputErrorMassage());
-            $this->html .= htmlTags::turnPage('index.php?page=display&table=' . $tableName,'Back');
+            $id = classes\pageFunctions::getID($method);
+            $this->html .= classes\pageFunctions::runMethod($method,$tableName,$id);
+            $this->html .= classes\htmlTags::changeRow(classes\pageFunctions::outputErrorMassage());
+            $this->html .= classes\htmlTags::turnPage('index.php?page=display&table=' . $tableName,'Back');
         }
     }
 ?>
