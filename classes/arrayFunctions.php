@@ -17,5 +17,13 @@
         public static function arrayKeys ($array) {
             return array_keys($array);
         }
+        public static function arrayClean ($array) {
+            foreach ($array as $key=>$value) {
+                if ($key % 2 == 0) {
+                    $res[$key/2] = $value;
+                }
+            }
+            return $res;
+        }
     }
 ?>
